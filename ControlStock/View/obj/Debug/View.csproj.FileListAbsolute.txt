@@ -1,0 +1,8 @@
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\bin\Debug\View.exe
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\bin\Debug\View.pdb
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\obj\Debug\View.exe
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\obj\Debug\View.pdb
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\obj\Debug\View.FrmCadastroProduto.resources
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Clash\Desktop\Trabalho\ControlStock\View\obj\Debug\View.csproj.GenerateResource.cache
