@@ -1,0 +1,5 @@
+C:\Users\Clash\Desktop\Programa\ControlStock\Model\bin\Debug\Model.dll
+C:\Users\Clash\Desktop\Programa\ControlStock\Model\bin\Debug\Model.pdb
+C:\Users\Clash\Desktop\Programa\ControlStock\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Clash\Desktop\Programa\ControlStock\Model\obj\Debug\Model.dll
+C:\Users\Clash\Desktop\Programa\ControlStock\Model\obj\Debug\Model.pdb

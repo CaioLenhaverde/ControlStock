@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroProduto));
-            this.gbInformacoesProduto = new System.Windows.Forms.GroupBox();
+            this.gbxInformacoesProduto = new System.Windows.Forms.GroupBox();
             this.lblLembrete = new System.Windows.Forms.Label();
             this.cbxUnidadeMedida = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,13 +57,8 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxProdutosCadastrador = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbxFiltro = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigobarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,49 +70,54 @@
             this.qtdmaxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtdminima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbInformacoesProduto.SuspendLayout();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbxFiltro = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.gbxInformacoesProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdMinima)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdMaxima)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdAtual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbxProdutosCadastrador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbInformacoesProduto
+            // gbxInformacoesProduto
             // 
-            this.gbInformacoesProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbxInformacoesProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbInformacoesProduto.BackColor = System.Drawing.Color.Transparent;
-            this.gbInformacoesProduto.Controls.Add(this.lblLembrete);
-            this.gbInformacoesProduto.Controls.Add(this.cbxUnidadeMedida);
-            this.gbInformacoesProduto.Controls.Add(this.label10);
-            this.gbInformacoesProduto.Controls.Add(this.txtPercentualLucro);
-            this.gbInformacoesProduto.Controls.Add(this.ckbAtivo);
-            this.gbInformacoesProduto.Controls.Add(this.label8);
-            this.gbInformacoesProduto.Controls.Add(this.txtCodigo);
-            this.gbInformacoesProduto.Controls.Add(this.label4);
-            this.gbInformacoesProduto.Controls.Add(this.nudQtdMinima);
-            this.gbInformacoesProduto.Controls.Add(this.nudQtdMaxima);
-            this.gbInformacoesProduto.Controls.Add(this.label9);
-            this.gbInformacoesProduto.Controls.Add(this.label7);
-            this.gbInformacoesProduto.Controls.Add(this.label6);
-            this.gbInformacoesProduto.Controls.Add(this.txtPreco);
-            this.gbInformacoesProduto.Controls.Add(this.label1);
-            this.gbInformacoesProduto.Controls.Add(this.nudQtdAtual);
-            this.gbInformacoesProduto.Controls.Add(this.label5);
-            this.gbInformacoesProduto.Controls.Add(this.label3);
-            this.gbInformacoesProduto.Controls.Add(this.label2);
-            this.gbInformacoesProduto.Controls.Add(this.txtValorUnitario);
-            this.gbInformacoesProduto.Controls.Add(this.txtCodigoBarras);
-            this.gbInformacoesProduto.Controls.Add(this.txtNomeProduto);
-            this.gbInformacoesProduto.Location = new System.Drawing.Point(12, 108);
-            this.gbInformacoesProduto.Name = "gbInformacoesProduto";
-            this.gbInformacoesProduto.Size = new System.Drawing.Size(1103, 247);
-            this.gbInformacoesProduto.TabIndex = 46;
-            this.gbInformacoesProduto.TabStop = false;
+            this.gbxInformacoesProduto.BackColor = System.Drawing.Color.Transparent;
+            this.gbxInformacoesProduto.Controls.Add(this.lblLembrete);
+            this.gbxInformacoesProduto.Controls.Add(this.cbxUnidadeMedida);
+            this.gbxInformacoesProduto.Controls.Add(this.label10);
+            this.gbxInformacoesProduto.Controls.Add(this.txtPercentualLucro);
+            this.gbxInformacoesProduto.Controls.Add(this.ckbAtivo);
+            this.gbxInformacoesProduto.Controls.Add(this.label8);
+            this.gbxInformacoesProduto.Controls.Add(this.txtCodigo);
+            this.gbxInformacoesProduto.Controls.Add(this.label4);
+            this.gbxInformacoesProduto.Controls.Add(this.nudQtdMinima);
+            this.gbxInformacoesProduto.Controls.Add(this.nudQtdMaxima);
+            this.gbxInformacoesProduto.Controls.Add(this.label9);
+            this.gbxInformacoesProduto.Controls.Add(this.label7);
+            this.gbxInformacoesProduto.Controls.Add(this.label6);
+            this.gbxInformacoesProduto.Controls.Add(this.txtPreco);
+            this.gbxInformacoesProduto.Controls.Add(this.label1);
+            this.gbxInformacoesProduto.Controls.Add(this.nudQtdAtual);
+            this.gbxInformacoesProduto.Controls.Add(this.label5);
+            this.gbxInformacoesProduto.Controls.Add(this.label3);
+            this.gbxInformacoesProduto.Controls.Add(this.label2);
+            this.gbxInformacoesProduto.Controls.Add(this.txtValorUnitario);
+            this.gbxInformacoesProduto.Controls.Add(this.txtCodigoBarras);
+            this.gbxInformacoesProduto.Controls.Add(this.txtNomeProduto);
+            this.gbxInformacoesProduto.Location = new System.Drawing.Point(12, 108);
+            this.gbxInformacoesProduto.Name = "gbxInformacoesProduto";
+            this.gbxInformacoesProduto.Size = new System.Drawing.Size(1103, 247);
+            this.gbxInformacoesProduto.TabIndex = 46;
+            this.gbxInformacoesProduto.TabStop = false;
             // 
             // lblLembrete
             // 
@@ -150,7 +150,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(376, 89);
+            this.label10.Location = new System.Drawing.Point(545, 89);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(140, 23);
             this.label10.TabIndex = 60;
@@ -159,7 +159,7 @@
             // txtPercentualLucro
             // 
             this.txtPercentualLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.txtPercentualLucro.Location = new System.Drawing.Point(380, 115);
+            this.txtPercentualLucro.Location = new System.Drawing.Point(549, 116);
             this.txtPercentualLucro.Name = "txtPercentualLucro";
             this.txtPercentualLucro.Size = new System.Drawing.Size(90, 32);
             this.txtPercentualLucro.TabIndex = 4;
@@ -251,7 +251,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(306, 160);
+            this.label7.Location = new System.Drawing.Point(306, 162);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(183, 23);
             this.label7.TabIndex = 50;
@@ -263,7 +263,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(633, 89);
+            this.label6.Location = new System.Drawing.Point(351, 89);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 23);
             this.label6.TabIndex = 49;
@@ -272,7 +272,7 @@
             // txtPreco
             // 
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.txtPreco.Location = new System.Drawing.Point(637, 115);
+            this.txtPreco.Location = new System.Drawing.Point(355, 116);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(90, 32);
             this.txtPreco.TabIndex = 5;
@@ -307,7 +307,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(9, 160);
+            this.label5.Location = new System.Drawing.Point(9, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 23);
             this.label5.TabIndex = 45;
@@ -320,7 +320,7 @@
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(484, 22);
+            this.label3.Location = new System.Drawing.Point(486, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 23);
             this.label3.TabIndex = 44;
@@ -341,7 +341,7 @@
             // txtValorUnitario
             // 
             this.txtValorUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.txtValorUnitario.Location = new System.Drawing.Point(210, 115);
+            this.txtValorUnitario.Location = new System.Drawing.Point(210, 116);
             this.txtValorUnitario.Name = "txtValorUnitario";
             this.txtValorUnitario.Size = new System.Drawing.Size(89, 32);
             this.txtValorUnitario.TabIndex = 3;
@@ -349,7 +349,7 @@
             // txtCodigoBarras
             // 
             this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.txtCodigoBarras.Location = new System.Drawing.Point(490, 48);
+            this.txtCodigoBarras.Location = new System.Drawing.Point(490, 45);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(318, 32);
             this.txtCodigoBarras.TabIndex = 1;
@@ -438,22 +438,22 @@
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // groupBox2
+            // gbxProdutosCadastrador
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbxProdutosCadastrador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.cbxFiltro);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtPesquisa);
-            this.groupBox2.Location = new System.Drawing.Point(12, 361);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1103, 365);
-            this.groupBox2.TabIndex = 50;
-            this.groupBox2.TabStop = false;
+            this.gbxProdutosCadastrador.BackColor = System.Drawing.Color.Transparent;
+            this.gbxProdutosCadastrador.Controls.Add(this.dataGridView1);
+            this.gbxProdutosCadastrador.Controls.Add(this.label12);
+            this.gbxProdutosCadastrador.Controls.Add(this.cbxFiltro);
+            this.gbxProdutosCadastrador.Controls.Add(this.label11);
+            this.gbxProdutosCadastrador.Controls.Add(this.txtPesquisa);
+            this.gbxProdutosCadastrador.Location = new System.Drawing.Point(12, 361);
+            this.gbxProdutosCadastrador.Name = "gbxProdutosCadastrador";
+            this.gbxProdutosCadastrador.Size = new System.Drawing.Size(1103, 365);
+            this.gbxProdutosCadastrador.TabIndex = 50;
+            this.gbxProdutosCadastrador.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -484,60 +484,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1091, 270);
             this.dataGridView1.TabIndex = 48;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(952, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(145, 23);
-            this.label12.TabIndex = 47;
-            this.label12.Text = "Filtrar Por Ativos :";
-            // 
-            // cbxFiltro
-            // 
-            this.cbxFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.cbxFiltro.FormattingEnabled = true;
-            this.cbxFiltro.Items.AddRange(new object[] {
-            "Todos",
-            "Sim",
-            "Não"});
-            this.cbxFiltro.Location = new System.Drawing.Point(956, 42);
-            this.cbxFiltro.Name = "cbxFiltro";
-            this.cbxFiltro.Size = new System.Drawing.Size(141, 34);
-            this.cbxFiltro.TabIndex = 46;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(6, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(151, 23);
-            this.label11.TabIndex = 45;
-            this.label11.Text = "Pesquisar Produto";
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.txtPesquisa.Location = new System.Drawing.Point(6, 51);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(330, 32);
-            this.txtPesquisa.TabIndex = 1;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
             // 
             // codigo
             // 
@@ -610,6 +556,60 @@
             this.ativo.Name = "ativo";
             this.ativo.ReadOnly = true;
             // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label12.Location = new System.Drawing.Point(952, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(145, 23);
+            this.label12.TabIndex = 47;
+            this.label12.Text = "Filtrar Por Ativos :";
+            // 
+            // cbxFiltro
+            // 
+            this.cbxFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.cbxFiltro.FormattingEnabled = true;
+            this.cbxFiltro.Items.AddRange(new object[] {
+            "Todos",
+            "Sim",
+            "Não"});
+            this.cbxFiltro.Location = new System.Drawing.Point(956, 42);
+            this.cbxFiltro.Name = "cbxFiltro";
+            this.cbxFiltro.Size = new System.Drawing.Size(141, 34);
+            this.cbxFiltro.TabIndex = 46;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(6, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(151, 23);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "Pesquisar Produto";
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.txtPesquisa.Location = new System.Drawing.Point(6, 51);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(330, 32);
+            this.txtPesquisa.TabIndex = 1;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FrmCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,26 +617,25 @@
             this.BackgroundImage = global::View.Properties.Resources.fundod;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1129, 738);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbxProdutosCadastrador);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.gbInformacoesProduto);
+            this.Controls.Add(this.gbxInformacoesProduto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "FrmCadastroProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCadastroProduto";
-            this.gbInformacoesProduto.ResumeLayout(false);
-            this.gbInformacoesProduto.PerformLayout();
+            this.gbxInformacoesProduto.ResumeLayout(false);
+            this.gbxInformacoesProduto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdMinima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdMaxima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdAtual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbxProdutosCadastrador.ResumeLayout(false);
+            this.gbxProdutosCadastrador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -645,7 +644,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbInformacoesProduto;
+        private System.Windows.Forms.GroupBox gbxInformacoesProduto;
         private System.Windows.Forms.Label lblLembrete;
         private System.Windows.Forms.ComboBox cbxUnidadeMedida;
         private System.Windows.Forms.Label label10;
@@ -672,7 +671,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxProdutosCadastrador;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbxFiltro;

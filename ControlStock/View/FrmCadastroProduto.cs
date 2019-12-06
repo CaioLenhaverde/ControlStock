@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace View
 {
     public partial class FrmCadastroProduto : Form
     {
+        Produto produto = new Produto();
+
         public FrmCadastroProduto()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace View
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtCodigoBarras.Text))
-            { 
+            {
                 errorProvider.SetError(txtCodigoBarras, "Informe o código de barras!");
                 errorProvider.SetIconPadding(txtCodigoBarras, -20);
                 txtCodigoBarras.Focus();
@@ -76,9 +79,48 @@ namespace View
             return true;
         }
 
+        void CarregarDadosProduto()
+        {
+            //Montado o objeto Produto com as informações para enviar para a controller
+            if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
+                produto.Codigo = Convert.ToInt32(txtCodigo.Text);
+
+            produto.NomeProduto = txtNomeProduto.Text;
+            produto.CodigoBarras = txtCodigoBarras.Text;
+            produto.UnidadeMedida = cbxUnidadeMedida.SelectedItem.ToString();
+            produto.CustoUnitario = Convert.ToDouble(txtValorUnitario.Text);
+            produto.PrecoVenda = Convert.ToDouble(txtPreco.Text);
+            produto.PercentualLucro = Convert.ToDouble(txtPercentualLucro.Text);
+            produto.QtdAtual = (int)nudQtdAtual.Value;
+            produto.QtdMaxima = (int)nudQtdMaxima.Value;
+            produto.QtdMinima = (int)nudQtdMinima.Value;
+
+            //if ternario
+            produto.Ativo = ckbAtivo.Checked ? "Sim" : "Não";
+
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            ValidarCampos();
+            if (btnCadastrar.Text == "Cadastrar")
+            {
+                btnCadastrar.Text = "Salvar";
+                btnCadastrar.Focus();
+                btnCancelar.Enabled = true;
+                btnEditar.Enabled = false;
+                gbxInformacoesProduto.Enabled = true;
+                gbxProdutosCadastrador.Enabled = false;
+
+                //Qtdatual só é habilitada no casdastro. para evitar fraude.
+                //para alteração da quantidade em estoque, podera ser feita na tela de movimentação de estoque.
+                nudQtdAtual.Enabled = true;
+            }
+            else if (btnCadastrar.Text == "Salvar")
+            {
+                if (ValidarCampos())
+                {
+                    CarregarDadosProduto();
+                }
+            }
         }
     }
 }
