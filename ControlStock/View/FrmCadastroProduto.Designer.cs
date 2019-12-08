@@ -58,17 +58,17 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gbxProdutosCadastrador = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDados = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigobarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precocompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precovenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentuallucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdatual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdmaxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeproduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidademedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtdminima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtdmaxima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtdatual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorunitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentuallucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precovenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
@@ -81,7 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudQtdAtual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxProdutosCadastrador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,10 +113,11 @@
             this.gbxInformacoesProduto.Controls.Add(this.txtValorUnitario);
             this.gbxInformacoesProduto.Controls.Add(this.txtCodigoBarras);
             this.gbxInformacoesProduto.Controls.Add(this.txtNomeProduto);
+            this.gbxInformacoesProduto.Enabled = false;
             this.gbxInformacoesProduto.Location = new System.Drawing.Point(12, 108);
             this.gbxInformacoesProduto.Name = "gbxInformacoesProduto";
             this.gbxInformacoesProduto.Size = new System.Drawing.Size(1103, 247);
-            this.gbxInformacoesProduto.TabIndex = 46;
+            this.gbxInformacoesProduto.TabIndex = 2;
             this.gbxInformacoesProduto.TabStop = false;
             // 
             // lblLembrete
@@ -400,6 +401,7 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(217)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatAppearance.BorderSize = 2;
             this.btnCancelar.FlatAppearance.CheckedBackColor = System.Drawing.Color.DarkGray;
@@ -415,6 +417,7 @@
             this.btnCancelar.TabIndex = 49;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
@@ -444,7 +447,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxProdutosCadastrador.BackColor = System.Drawing.Color.Transparent;
-            this.gbxProdutosCadastrador.Controls.Add(this.dataGridView1);
+            this.gbxProdutosCadastrador.Controls.Add(this.dgvDados);
             this.gbxProdutosCadastrador.Controls.Add(this.label12);
             this.gbxProdutosCadastrador.Controls.Add(this.cbxFiltro);
             this.gbxProdutosCadastrador.Controls.Add(this.label11);
@@ -452,105 +455,119 @@
             this.gbxProdutosCadastrador.Location = new System.Drawing.Point(12, 361);
             this.gbxProdutosCadastrador.Name = "gbxProdutosCadastrador";
             this.gbxProdutosCadastrador.Size = new System.Drawing.Size(1103, 365);
-            this.gbxProdutosCadastrador.TabIndex = 50;
+            this.gbxProdutosCadastrador.TabIndex = 0;
             this.gbxProdutosCadastrador.TabStop = false;
             // 
-            // dataGridView1
+            // dgvDados
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvDados.AllowUserToAddRows = false;
+            this.dgvDados.AllowUserToDeleteRows = false;
+            this.dgvDados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDados.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.dgvDados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
-            this.nomeproduto,
             this.codigobarras,
-            this.unidade,
-            this.precocompra,
-            this.precovenda,
-            this.percentuallucro,
-            this.qtdatual,
-            this.qtdmaxima,
+            this.nomeproduto,
+            this.unidademedida,
             this.qtdminima,
+            this.qtdmaxima,
+            this.qtdatual,
+            this.valorunitario,
+            this.percentuallucro,
+            this.precovenda,
             this.ativo});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 89);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1091, 270);
-            this.dataGridView1.TabIndex = 48;
+            this.dgvDados.Location = new System.Drawing.Point(6, 89);
+            this.dgvDados.Name = "dgvDados";
+            this.dgvDados.ReadOnly = true;
+            this.dgvDados.RowHeadersVisible = false;
+            this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDados.Size = new System.Drawing.Size(1091, 270);
+            this.dgvDados.TabIndex = 1;
+            this.dgvDados.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDados_MouseDoubleClick);
             // 
             // codigo
             // 
+            this.codigo.DataPropertyName = "codigo";
             this.codigo.FillWeight = 50F;
             this.codigo.HeaderText = "Codigo";
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
-            // 
-            // nomeproduto
-            // 
-            this.nomeproduto.HeaderText = "Nome Produto";
-            this.nomeproduto.Name = "nomeproduto";
-            this.nomeproduto.ReadOnly = true;
+            this.codigo.Visible = false;
             // 
             // codigobarras
             // 
+            this.codigobarras.DataPropertyName = "codigobarras";
             this.codigobarras.HeaderText = "Codigo Barras";
             this.codigobarras.Name = "codigobarras";
             this.codigobarras.ReadOnly = true;
             // 
-            // unidade
+            // nomeproduto
             // 
-            this.unidade.HeaderText = "Unidade Medida";
-            this.unidade.Name = "unidade";
-            this.unidade.ReadOnly = true;
+            this.nomeproduto.DataPropertyName = "nomeproduto";
+            this.nomeproduto.HeaderText = "Nome Produto";
+            this.nomeproduto.Name = "nomeproduto";
+            this.nomeproduto.ReadOnly = true;
             // 
-            // precocompra
+            // unidademedida
             // 
-            this.precocompra.HeaderText = "Preço Compra R$";
-            this.precocompra.Name = "precocompra";
-            this.precocompra.ReadOnly = true;
-            // 
-            // precovenda
-            // 
-            this.precovenda.HeaderText = "Preço Venda R$";
-            this.precovenda.Name = "precovenda";
-            this.precovenda.ReadOnly = true;
-            // 
-            // percentuallucro
-            // 
-            this.percentuallucro.HeaderText = "Percentual Lucro R$";
-            this.percentuallucro.Name = "percentuallucro";
-            this.percentuallucro.ReadOnly = true;
-            // 
-            // qtdatual
-            // 
-            this.qtdatual.FillWeight = 67F;
-            this.qtdatual.HeaderText = "Quantidade Atual";
-            this.qtdatual.Name = "qtdatual";
-            this.qtdatual.ReadOnly = true;
-            // 
-            // qtdmaxima
-            // 
-            this.qtdmaxima.FillWeight = 65F;
-            this.qtdmaxima.HeaderText = "Quantidade Maxima";
-            this.qtdmaxima.Name = "qtdmaxima";
-            this.qtdmaxima.ReadOnly = true;
+            this.unidademedida.DataPropertyName = "unidademedida";
+            this.unidademedida.HeaderText = "Unidade Medida";
+            this.unidademedida.Name = "unidademedida";
+            this.unidademedida.ReadOnly = true;
             // 
             // qtdminima
             // 
+            this.qtdminima.DataPropertyName = "qtdminima";
             this.qtdminima.FillWeight = 65F;
             this.qtdminima.HeaderText = "Quantidade Minima";
             this.qtdminima.Name = "qtdminima";
             this.qtdminima.ReadOnly = true;
             // 
+            // qtdmaxima
+            // 
+            this.qtdmaxima.DataPropertyName = "qtdmaxima";
+            this.qtdmaxima.FillWeight = 65F;
+            this.qtdmaxima.HeaderText = "Quantidade Maxima";
+            this.qtdmaxima.Name = "qtdmaxima";
+            this.qtdmaxima.ReadOnly = true;
+            // 
+            // qtdatual
+            // 
+            this.qtdatual.DataPropertyName = "qtdatual";
+            this.qtdatual.FillWeight = 67F;
+            this.qtdatual.HeaderText = "Quantidade Atual";
+            this.qtdatual.Name = "qtdatual";
+            this.qtdatual.ReadOnly = true;
+            // 
+            // valorunitario
+            // 
+            this.valorunitario.DataPropertyName = "custounitario";
+            this.valorunitario.HeaderText = "Preço Compra R$";
+            this.valorunitario.Name = "valorunitario";
+            this.valorunitario.ReadOnly = true;
+            // 
+            // percentuallucro
+            // 
+            this.percentuallucro.DataPropertyName = "percentuallucro";
+            this.percentuallucro.HeaderText = "Percentual Lucro R$";
+            this.percentuallucro.Name = "percentuallucro";
+            this.percentuallucro.ReadOnly = true;
+            // 
+            // precovenda
+            // 
+            this.precovenda.DataPropertyName = "precovenda";
+            this.precovenda.HeaderText = "Preço Venda R$";
+            this.precovenda.Name = "precovenda";
+            this.precovenda.ReadOnly = true;
+            // 
             // ativo
             // 
+            this.ativo.DataPropertyName = "ativo";
             this.ativo.FillWeight = 50F;
             this.ativo.HeaderText = "Ativo";
             this.ativo.Name = "ativo";
@@ -584,6 +601,7 @@
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(141, 34);
             this.cbxFiltro.TabIndex = 46;
+            this.cbxFiltro.SelectedIndexChanged += new System.EventHandler(this.cbxFiltro_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -604,7 +622,8 @@
             this.txtPesquisa.Location = new System.Drawing.Point(6, 51);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(330, 32);
-            this.txtPesquisa.TabIndex = 1;
+            this.txtPesquisa.TabIndex = 0;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // errorProvider
             // 
@@ -636,7 +655,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbxProdutosCadastrador.ResumeLayout(false);
             this.gbxProdutosCadastrador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -672,22 +691,22 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.GroupBox gbxProdutosCadastrador;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDados;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbxFiltro;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeproduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigobarras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precocompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precovenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn percentuallucro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdatual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdmaxima;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeproduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unidademedida;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtdminima;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtdmaxima;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtdatual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorunitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percentuallucro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precovenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn ativo;
     }
 }

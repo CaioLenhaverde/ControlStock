@@ -1,4 +1,5 @@
 ﻿using Model;
+using Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,11 @@ namespace View
         public FrmCadastroProduto()
         {
             InitializeComponent();
+
+            //carrega o filtro TODOS por padrão.
+            cbxFiltro.SelectedItem = "Todos";
+            CarregarProdutos();
+            
         }
         bool ValidarCampos()
         {
@@ -79,7 +85,7 @@ namespace View
             return true;
         }
 
-        void CarregarDadosProduto()
+        void SalvarDadosProduto()
         {
             //Montado o objeto Produto com as informações para enviar para a controller
             if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
@@ -99,10 +105,54 @@ namespace View
             produto.Ativo = ckbAtivo.Checked ? "Sim" : "Não";
 
         }
+
+        void CarregarProdutos()
+        {
+            txtPesquisa.Focus();
+            try
+            {
+                ControllerProduto controllerProduto = new ControllerProduto();
+                DataTable dt = new DataTable();
+                dt = controllerProduto.Carregar(txtPesquisa.Text, cbxFiltro.SelectedItem.ToString());
+                dgvDados.DataSource = dt;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            txtPesquisa.Focus();
+        }
+
+        public void LimparCampos(Control controle)
+        {
+            btnCadastrar.Text = "Cadastrar";
+            btnEditar.Enabled = true;
+            btnEditar.Text = "Editar";
+            btnEditar.Enabled = true;
+            btnCancelar.Enabled = false;
+            foreach (Control control in controle.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = string.Empty;
+                }
+                if (control is NumericUpDown)
+                {
+                    ((NumericUpDown)control).Value = 0;
+                }
+                if (control is ComboBox)
+                {
+                    ((ComboBox)control).SelectedIndex = -1;
+                }
+                ckbAtivo.Checked = false;
+            }
+        }
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (btnCadastrar.Text == "Cadastrar")
             {
+
                 btnCadastrar.Text = "Salvar";
                 btnCadastrar.Focus();
                 btnCancelar.Enabled = true;
@@ -114,12 +164,74 @@ namespace View
                 //para alteração da quantidade em estoque, podera ser feita na tela de movimentação de estoque.
                 nudQtdAtual.Enabled = true;
             }
-            else if (btnCadastrar.Text == "Salvar")
+            else
             {
+                
                 if (ValidarCampos())
                 {
-                    CarregarDadosProduto();
+                    SalvarDadosProduto();
+
+                    //Enviando para controller salvar no banco de daos.
+                    ControllerProduto controllerProduto = new ControllerProduto();
+
+                    //recebe o codigo gerado para o produto no banco de dandos com o auto incremento.
+                    int codigo = controllerProduto.Persistir(produto, "cadastrar");
+
+                    
+                    if(codigo > 0)
+                    {
+                        MessageBox.Show("PRODUTO CADASTRADO COM SUCESSO!");
+                        LimparCampos(gbxInformacoesProduto);
+
+                        //carrega novamente para carregar o novo produto cadastrado.
+                        CarregarProdutos();
+                    }
                 }
+            }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos(this.gbxInformacoesProduto);
+            
+            
+        }
+
+        private void cbxFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarProdutos();
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            CarregarProdutos();
+        }
+
+        //esse comando passa os dados do datagraviw para cada dominio   caso queira editar alguma informação.
+        private void dgvDados_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (dgvDados.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Você precisa selecionar um produto da lista!");
+            }
+            else
+            {
+                txtCodigo.Text = dgvDados.CurrentRow.Cells["codigo"].Value.ToString();
+                txtCodigoBarras.Text = dgvDados.CurrentRow.Cells["codigobarras"].Value.ToString();
+                txtNomeProduto.Text = dgvDados.CurrentRow.Cells["nomeproduto"].Value.ToString();
+                cbxUnidadeMedida.SelectedItem = dgvDados.CurrentRow.Cells["unidademedida"].Value.ToString();
+                nudQtdMinima.Value = (int)dgvDados.CurrentRow.Cells["qtdminima"].Value;
+                nudQtdAtual.Value = (int)dgvDados.CurrentRow.Cells["qtdatual"].Value;
+                nudQtdMaxima.Value = (int)dgvDados.CurrentRow.Cells["qtdmaxima"].Value;
+                txtValorUnitario.Text = dgvDados.CurrentRow.Cells["valorunitario"].Value.ToString();
+                txtPercentualLucro.Text = dgvDados.CurrentRow.Cells["percentuallucro"].Value.ToString();
+                txtPreco.Text = dgvDados.CurrentRow.Cells["precovenda"].Value.ToString();
+
+                if (dgvDados.CurrentRow.Cells["ativo"].Value.ToString() == "Sim")
+                    ckbAtivo.Checked = true;
+                else
+                    ckbAtivo.Checked = false;
+
+                btnEditar.Enabled = true;
             }
         }
     }
