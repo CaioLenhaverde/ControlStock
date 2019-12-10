@@ -126,10 +126,14 @@ namespace View
         public void LimparCampos(Control controle)
         {
             btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.Enabled = true;
             btnEditar.Enabled = true;
-            btnEditar.Text = "Editar";
+            btnEditar.Text = "Atualizar";
             btnEditar.Enabled = true;
             btnCancelar.Enabled = false;
+            gbxProdutosCadastrador.Enabled = true;
+            gbxInformacoesProduto.Enabled = false;
+
             foreach (Control control in controle.Controls)
             {
                 if (control is TextBox)
@@ -150,6 +154,7 @@ namespace View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            LimparCampos(gbxInformacoesProduto);
             if (btnCadastrar.Text == "Cadastrar")
             {
 
@@ -232,6 +237,47 @@ namespace View
                     ckbAtivo.Checked = false;
 
                 btnEditar.Enabled = true;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text == "")
+            {
+                MessageBox.Show("Você precisa selecionar um produto da lista!");
+            }
+            else
+            {
+                if (btnEditar.Text == "Atualizar")
+                {
+                    gbxInformacoesProduto.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    gbxProdutosCadastrador.Enabled = false;
+                    btnEditar.Text = "Salvar";
+
+                    txtCodigoBarras.Focus();
+                    btnCadastrar.Enabled = false;
+                    nudQtdAtual.Enabled = false;
+                    lblLembrete.Visible = true;
+                }
+                else
+                {
+                    if (ValidarCampos())
+                    {
+                        SalvarDadosProduto();
+
+                        // *UPDATE*  atualiza produtos cadastrados.
+                        ControllerProduto controllerProduto = new ControllerProduto();
+                        int codigo = controllerProduto.Persistir(produto, "atualizar");
+
+                        if (codigo > 0)
+                        {
+                            MessageBox.Show("Atualizado com sucesso!");
+                            LimparCampos(gbxInformacoesProduto);
+                            CarregarProdutos();
+                        }
+                    }
+                }
             }
         }
     }

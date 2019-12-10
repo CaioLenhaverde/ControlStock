@@ -23,9 +23,17 @@ namespace Controller
                 {
                     instrucao = "INSERT INTO Produto (codigobarras, nomeproduto, unidademedida, qtdminima, qtdmaxima, qtdatual, custounitario, percentuallucro, precovenda, ativo) VALUES (@codigobarras, @nomeproduto, @unidademedida, @qtdminima, @qtdmaxima, @qtdatual, @custounitario, @precovenda, @percentuallucro, @ativo); SELECT SCOPE_IDENTITY();";
                 }
+                else if (tipo == "atualizar")
+                {
+                    instrucao = "UPDATE Produto SET codigobarras=@codigobarras, nomeproduto=@nomeproduto, unidademedida=@unidademedida, qtdminima=@qtdminima, qtdmaxima=@qtdmaxima, qtdatual=@qtdatual, custounitario=@custounitario, percentuallucro=@percentuallucro, precovenda=@precovenda, ativo=@ativo WHERE codigo=@codigo";
+                }
 
                 SqlCommand command = new SqlCommand(instrucao, acessoDados.Conectar());
 
+                if (tipo == "atualizar")
+                {
+                    command.Parameters.AddWithValue("@codigo", produto.Codigo);
+                }
                 command.Parameters.AddWithValue("@codigobarras", produto.CodigoBarras);
                 command.Parameters.AddWithValue("@nomeproduto", produto.NomeProduto);
                 command.Parameters.AddWithValue("@unidademedida", produto.UnidadeMedida);
