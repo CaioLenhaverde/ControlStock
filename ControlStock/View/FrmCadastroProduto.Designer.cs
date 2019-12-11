@@ -165,7 +165,7 @@
             this.txtPercentualLucro.Location = new System.Drawing.Point(549, 116);
             this.txtPercentualLucro.Name = "txtPercentualLucro";
             this.txtPercentualLucro.Size = new System.Drawing.Size(90, 32);
-            this.txtPercentualLucro.TabIndex = 4;
+            this.txtPercentualLucro.TabIndex = 5;
             // 
             // ckbAtivo
             // 
@@ -278,7 +278,8 @@
             this.txtPreco.Location = new System.Drawing.Point(355, 116);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(90, 32);
-            this.txtPreco.TabIndex = 5;
+            this.txtPreco.TabIndex = 4;
+            this.txtPreco.TextChanged += new System.EventHandler(this.txtPreco_TextChanged);
             // 
             // label1
             // 
@@ -348,6 +349,7 @@
             this.txtValorUnitario.Name = "txtValorUnitario";
             this.txtValorUnitario.Size = new System.Drawing.Size(89, 32);
             this.txtValorUnitario.TabIndex = 3;
+            this.txtValorUnitario.TextChanged += new System.EventHandler(this.txtValorUnitario_TextChanged);
             // 
             // txtCodigoBarras
             // 
@@ -389,6 +391,7 @@
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(221)))), ((int)(((byte)(157)))));
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::View.Properties.Resources.page_edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnEditar.Location = new System.Drawing.Point(851, 60);
@@ -412,6 +415,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(221)))), ((int)(((byte)(157)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::View.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCancelar.Location = new System.Drawing.Point(986, 60);
@@ -434,11 +438,12 @@
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(221)))), ((int)(((byte)(157)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Image = global::View.Properties.Resources.pencil;
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastrar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCadastrar.Location = new System.Drawing.Point(716, 60);
+            this.btnCadastrar.Location = new System.Drawing.Point(709, 60);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(129, 42);
+            this.btnCadastrar.Size = new System.Drawing.Size(136, 42);
             this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;

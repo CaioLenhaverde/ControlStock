@@ -58,6 +58,12 @@
     <Compile Include="FrmConfiguracaoSql.Designer.cs">
       <DependentUpon>FrmConfiguracaoSql.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMovimentacaoEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMovimentacaoEstoque.Designer.cs">
+      <DependentUpon>FrmMovimentacaoEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfiguracaoSql.resx">
       <DependentUpon>FrmConfiguracaoSql.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMovimentacaoEstoque.resx">
+      <DependentUpon>FrmMovimentacaoEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

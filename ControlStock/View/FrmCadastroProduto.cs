@@ -126,13 +126,16 @@ namespace View
         public void LimparCampos(Control controle)
         {
             btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.Image = Properties.Resources.pencil;
             btnCadastrar.Enabled = true;
             btnEditar.Enabled = true;
             btnEditar.Text = "Atualizar";
+            btnEditar.Image = Properties.Resources.page_edit;
             btnEditar.Enabled = true;
             btnCancelar.Enabled = false;
             gbxProdutosCadastrador.Enabled = true;
             gbxInformacoesProduto.Enabled = false;
+            lblLembrete.Visible = false;
 
             foreach (Control control in controle.Controls)
             {
@@ -154,11 +157,12 @@ namespace View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            LimparCampos(gbxInformacoesProduto);
+            
             if (btnCadastrar.Text == "Cadastrar")
             {
-
+                LimparCampos(gbxInformacoesProduto);
                 btnCadastrar.Text = "Salvar";
+                btnCadastrar.Image = Properties.Resources.tick;
                 btnCadastrar.Focus();
                 btnCancelar.Enabled = true;
                 btnEditar.Enabled = false;
@@ -178,17 +182,16 @@ namespace View
 
                     //Enviando para controller salvar no banco de daos.
                     ControllerProduto controllerProduto = new ControllerProduto();
-
-                    //recebe o codigo gerado para o produto no banco de dandos com o auto incremento.
                     int codigo = controllerProduto.Persistir(produto, "cadastrar");
 
                     
                     if(codigo > 0)
                     {
                         MessageBox.Show("PRODUTO CADASTRADO COM SUCESSO!");
+
                         LimparCampos(gbxInformacoesProduto);
 
-                        //carrega novamente para carregar o novo produto cadastrado.
+                        //carrega novamente para mostrar o novo produto cadastrado.
                         CarregarProdutos();
                     }
                 }
@@ -211,7 +214,7 @@ namespace View
             CarregarProdutos();
         }
 
-        //esse comando passa os dados do datagraviw para cada dominio   caso queira editar alguma informação.
+        //esse comando passa os dados do datagraviw para cada dominio   caso usuario queira editar alguma informação.
         private void dgvDados_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (dgvDados.SelectedRows.Count == 0)
@@ -244,18 +247,19 @@ namespace View
         {
             if (txtCodigo.Text == "")
             {
-                MessageBox.Show("Você precisa selecionar um produto da lista!");
+                MessageBox.Show("Cloick 2x no produto da lista que deseja atualizar!");
             }
             else
             {
                 if (btnEditar.Text == "Atualizar")
                 {
+                    btnEditar.Text = "Salvar";
                     gbxInformacoesProduto.Enabled = true;
                     btnCancelar.Enabled = true;
                     gbxProdutosCadastrador.Enabled = false;
-                    btnEditar.Text = "Salvar";
+                    btnEditar.Image = Properties.Resources.tick;
 
-                    txtCodigoBarras.Focus();
+                    txtNomeProduto.Focus();
                     btnCadastrar.Enabled = false;
                     nudQtdAtual.Enabled = false;
                     lblLembrete.Visible = true;
@@ -279,6 +283,32 @@ namespace View
                     }
                 }
             }
+        }
+
+        void CalcularPercentual()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtValorUnitario.Text) && !string.IsNullOrEmpty(txtPreco.Text))
+                {
+                    txtPercentualLucro.Text = ((Convert.ToDouble(txtPreco.Text) - Convert.ToDouble(txtValorUnitario.Text))).ToString("F");
+                }
+            }
+            catch (Exception erro)
+
+            {
+                MessageBox.Show("Digite apenas números! Erro: " + erro.Message);
+            }
+        }
+
+        private void txtValorUnitario_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPercentual();
+        }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPercentual();
         }
     }
 }
