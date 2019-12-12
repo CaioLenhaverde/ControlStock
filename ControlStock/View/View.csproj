@@ -58,6 +58,12 @@
     <Compile Include="FrmConfiguracaoSql.Designer.cs">
       <DependentUpon>FrmConfiguracaoSql.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaEstoque.Designer.cs">
+      <DependentUpon>FrmConsultaEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMovimentacaoEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfiguracaoSql.resx">
       <DependentUpon>FrmConfiguracaoSql.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaEstoque.resx">
+      <DependentUpon>FrmConsultaEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMovimentacaoEstoque.resx">
       <DependentUpon>FrmMovimentacaoEstoque.cs</DependentUpon>

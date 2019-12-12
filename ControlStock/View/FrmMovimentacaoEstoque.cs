@@ -17,6 +17,7 @@ namespace View
         public FrmMovimentacaoEstoque()
         {
             InitializeComponent();
+            cbxTipoMovimentacao.SelectedIndex = 0;
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)
@@ -45,7 +46,10 @@ namespace View
                         if (retorno > 0)
                         {
                             MessageBox.Show("Movimentação de Estoque registrada com sucesso!");
-                            
+
+                            LimparCampos(gbxDetalhesMovimentacao);
+                            LimparCampos(groupBox1);
+                            txtCodigoBarras.Text = "";
                         }
                     }
                     else
@@ -91,9 +95,8 @@ namespace View
             return true;
         }
 
-        //quando max de caracteres do motivo ser atingido muda de cor.
         
-
+    
         public void LimparCampos(Control controle)
         {
 
@@ -105,19 +108,23 @@ namespace View
                 }
                 if (control is NumericUpDown)
                 {
-                    ((NumericUpDown)control).Value = 0;
+                    ((NumericUpDown)control).Value = 1;
                 }
                 if (control is ComboBox)
                 {
-                    ((ComboBox)control).SelectedIndex = -1;
+                    ((ComboBox)control).SelectedIndex = 0;
                 }
 
                 rtbMotivo.Text = "";
+                gbxDetalhesMovimentacao.Enabled = false;
+                groupBox1.Enabled = false;
+                btnCarregar.Text = "Carregar";
             }
         }
 
         private void rtbMotivo_TextChanged(object sender, EventArgs e)
         {
+            //quando max de caracteres ser atingido o contador muda de cor;
             lblCaracteres.Text = "Caracteres: " + rtbMotivo.TextLength + "/200";
 
             if (rtbMotivo.TextLength == rtbMotivo.MaxLength)
@@ -125,6 +132,15 @@ namespace View
             else
                 lblCaracteres.ForeColor = Color.Black;
         }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+
+            LimparCampos(gbxDetalhesMovimentacao);
+            LimparCampos(groupBox1);
+            txtCodigoBarras.Text = "";
+        }
     }
 
 }
+

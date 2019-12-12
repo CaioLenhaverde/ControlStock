@@ -365,6 +365,7 @@
             this.btnLimpar.TabIndex = 69;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnCarregar
             // 

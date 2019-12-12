@@ -79,6 +79,74 @@ namespace Controller
             }
         }
 
-       
+        public DataTable Lista (string nomeProduto, string acao)
+        {
+            AcessoDadosSqlServer acessoDados = new AcessoDadosSqlServer();
+            try
+            {
+                if (acao == "Todas")
+                    acao = "";
+
+                string instrucao = "SELECT Estoque.data, Estoque.hora, Estoque.motivo, Estoque.acao, Estoque.quantidade, Produto.nomeproduto as produto, Produto.unidademedida, Produto.qtdatual FROM Estoque INNER JOIN Produto ON(Estoque.codigoproduto = Produto.codigo) WHERE Produto.nomeproduto  LIKE '%" + nomeProduto + "%' AND Estoque.acao LIKE '%" + acao + "%'";
+
+                SqlCommand command = new SqlCommand(instrucao, acessoDados.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch ( Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                acessoDados.FecharConexao();
+            }
+        }
+
+        public int QtdeProdutoEstoqueMaximo()
+        {
+            AcessoDadosSqlServer acessoDados = new AcessoDadosSqlServer();
+            try
+            {
+                string instrucao = "SELECT COUNT(codigo) FROM Produto WHERE qtdatual > qtdmaxima";
+
+                SqlCommand command = new SqlCommand(instrucao, acessoDados.Conectar());
+                int retorno = Convert.ToInt32(command.ExecuteScalar());
+                return retorno;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                acessoDados.FecharConexao();
+            }
+        }
+
+        public int QtdeProdutoEstoqueMinimo()
+        {
+            AcessoDadosSqlServer acessoDados = new AcessoDadosSqlServer();
+            try
+            {
+                string instrucao = "SELECT COUNT(codigo) FROM Produto WHERE qtdatual < qtdminima";
+
+                SqlCommand command = new SqlCommand(instrucao, acessoDados.Conectar());
+                int retorno = Convert.ToInt32(command.ExecuteScalar());
+                return retorno;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                acessoDados.FecharConexao();
+            }
+        }
+
     }
 }
