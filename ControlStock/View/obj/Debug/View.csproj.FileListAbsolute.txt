@@ -23,3 +23,4 @@ C:\Users\Clash\Desktop\Programa\ControlStock\View\obj\Debug\View.exe
 C:\Users\Clash\Desktop\Programa\ControlStock\View\obj\Debug\View.pdb
 C:\Users\Clash\Desktop\Programa\ControlStock\View\obj\Debug\View.FrmMovimentacaoEstoque.resources
 C:\Users\Clash\Desktop\Programa\ControlStock\View\obj\Debug\View.FrmConsultaEstoque.resources
+C:\Users\Clash\Desktop\Programa\ControlStock\View\obj\Debug\View.FrmVenda.resources
