@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Controller;
 using Model;
 
+
 namespace View
 {
     public partial class FrmVenda : Form
@@ -126,7 +127,27 @@ namespace View
                 if (retorno == true)
                 {
                     MessageBox.Show("Venda Finalizada!");
+                    LimparCampos(this.gbxDetalhesVenda);
+
+
                 }
+            }
+        }
+        void LimparCampos(Control controle)
+        {
+            foreach (Control control in controle.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = string.Empty;
+                }
+                nudQuantidade.Value = 1;
+                ckbDesconto.Checked = false;
+                gbxDetalhesVenda.Enabled = false;
+                btnNovaVenda.Text = "Nova";
+                txtValorTotal.Text = "0";
+                txtSubTotal.Text = "0";
+                dgvDados.Rows.Clear();
             }
         }
 
@@ -164,6 +185,31 @@ namespace View
                 this.ValorTotal -= Convert.ToDouble(valorTotal);
                 AtualizaValores();
             }
+        }
+
+        private void txtDesconto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Para permitir somente números.
+            int isNumber = 0;
+            e.Handled = !int.TryParse(e.KeyChar.ToString(), out isNumber);
+        }
+
+        private void txtDesconto_TextChanged(object sender, EventArgs e)
+        {
+            ValidaDinheiro(txtDesconto);
+            if (this.ValorTotal == Convert.ToDouble(txtDesconto.Text))
+            {
+                MessageBox.Show("Não é possível aplicar desconto maior que o valor da venda!");
+            }
+            else
+            {
+                AtualizaValores();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos(this.gbxDetalhesVenda);
         }
     }
 }

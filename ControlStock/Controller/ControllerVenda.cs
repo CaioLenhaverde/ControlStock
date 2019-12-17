@@ -13,6 +13,9 @@ namespace Controller
     {
         public bool Registrar(Venda venda, List<Produto> itensVenda)
         {
+
+            
+
             AcessoDadosSqlServer acessoDados = new AcessoDadosSqlServer();
             try
             {
